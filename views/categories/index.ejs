@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
-</head>
-<body>
+<div class="categories-container">
     <h1>All Categories</h1>
-    <a href="/categories/new">Add New Category</a>
-    <ul>
-        <% categories.forEach(category => { %>
-        <li>
-            <a href="/categories/<%= category.id %>"><%= category.name %></a>
-        </li>
-        <% }) %>
-    </ul>
-</body>
-</html>
+
+    <div class="categories-actions">
+        <a href="/categories/new" class="add-new-category-button">Add New Category</a>
+        <a href="/items" class="view-all-items-button">All Items</a>
+    </div>
+
+    <% if (categories.length > 0) { %>
+        <ul class="categories-list">
+            <% categories.forEach(category => { %>
+            <li>
+                <span class="category-name">
+                    <a href="/categories/<%= category.id %>"><%= category.name %></a>
+                </span>
+                <div class="category-actions">
+                    <a href="/categories/<%= category.id %>/edit">Edit</a>
+                    <a href="/categories/<%= category.id %>/delete">Delete</a>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+    <p>No Categories Found.</p>
+<% } %>
+</div>

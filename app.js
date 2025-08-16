@@ -14,6 +14,10 @@ app.use(express.static('public'));
 app.use(expressLayouts);
 app.set('layout', 'layout');
 
+app.get('/', (req, res) =>{
+    res.render('home', { title: 'Inventory App Home'});
+});
+
 app.use('/categories', categoryRoutes);
 app.use('/items', itemRoutes);
 
