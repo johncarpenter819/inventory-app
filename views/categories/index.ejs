@@ -14,8 +14,11 @@
                     <a href="/categories/<%= category.id %>"><%= category.name %></a>
                 </span>
                 <div class="category-actions">
-                    <a href="/categories/<%= category.id %>/edit">Edit</a>
-                    <a href="/categories/<%= category.id %>/delete">Delete</a>
+                    <a href="/categories/<%= category.id %>/edit" type="submit" class="all-cats-edit-btn">Edit</a>
+
+                    <form action="/categories/<%= category.id %>?_method=DELETE" method="POST" style="display: inline;">
+                        <button type="submit" class="all-cats-delete-button">Delete</button>
+                    </form>
                 </div>
             </li>
             <% }) %>

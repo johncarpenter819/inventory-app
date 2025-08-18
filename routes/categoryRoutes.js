@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
 
+
 router.get('/', categoryController.index);
 router.get('/new', categoryController.createForm);
 router.post('/', categoryController.create);
